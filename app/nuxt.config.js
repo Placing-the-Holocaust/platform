@@ -2,6 +2,14 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  // Router config for Github Pages
+  router: {
+    base: '/platform/', // Set to your repository name
+  },
+  generate: {
+    fallback: '404.html', // Enables client-side routing
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'placing-holocaust-app',

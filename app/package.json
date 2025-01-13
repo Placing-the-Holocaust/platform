@@ -2,6 +2,7 @@
   "name": "placing-holocaust-app",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://placing-the-holocaust.github.io/platform",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
