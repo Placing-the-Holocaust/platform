@@ -1,7 +1,5 @@
 # .github/workflows/deploy.yml
 
-# .github/workflows/deploy.yml
-
 name: Deploy to GitHub Pages
 
 on:
@@ -22,35 +20,43 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.x' # Your Node.js version
-          cache: 'npm'
+          node-version: '21.2.0' # Specify your Node.js version here
+          cache: 'none' # Disable default npm caching
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: app/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('app/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install Dependencies
         run: |
-          cd app
           npm install
+        working-directory: app
 
       - name: Lint Code
         run: |
-          cd app
           npm run lint
+        working-directory: app
         # Ensure you have a lint script in your package.json
 
       - name: Run Tests
         run: |
-          cd app
           npm run test
+        working-directory: app
         # Ensure you have a test script in your package.json
 
       - name: Build Project
         run: |
-          cd app
           npm run build
+        working-directory: app
 
       - name: Generate Static Files
         run: |
-          cd app
           npm run generate
+        working-directory: app
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
