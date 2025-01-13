@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.2.0' # Specify your Node.js version here
+          node-version: '21.x' # Specify your Node.js version here
           cache: 'npm'
 
       - name: Install Dependencies
