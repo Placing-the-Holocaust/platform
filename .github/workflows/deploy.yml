@@ -1,5 +1,7 @@
 # .github/workflows/deploy.yml
 
+# .github/workflows/deploy.yml
+
 name: Deploy to GitHub Pages
 
 on:
@@ -20,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.x' # Specify your Node.js version here
+          node-version: '21.x' # Your Node.js version
           cache: 'npm'
 
       - name: Install Dependencies
