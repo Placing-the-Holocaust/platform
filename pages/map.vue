@@ -9,13 +9,20 @@
 <script>
 import Map from '@/components/Map.vue'
 
+// Step 1: Decide basePath depending on dev vs. production
+    // If your GH Pages repo subdirectory is '/platform', do:
+    const basePath = process.env.NODE_ENV === 'production' ? '/platform' : ''
+    
+    // Step 2: Build the style path
+    const stylePath = `${basePath}/styles/style.json`
+
 export default {
   components: {
     Map,
   },
   data() {
     return {
-      mapStyle: '/styles/style.json', // Path to your custom style
+      mapStyle: stylePath, // Path to your custom style
       mapCenter: [15.2551, 52.5200], // Centered on Europe
       mapZoom: 4,
     }
