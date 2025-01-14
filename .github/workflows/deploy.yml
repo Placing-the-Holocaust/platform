@@ -1,4 +1,4 @@
-# .github/workflows/deploy.yml
+# .github/workflows/deploy.yml v2
 
 name: Deploy to GitHub Pages
 
@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21.x' # Specify your Node.js version here
+          node-version: '21.2.0' # Specify your Node.js version here
           cache: 'npm'
 
       - name: Install Dependencies
@@ -47,3 +47,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
+
