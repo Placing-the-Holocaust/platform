@@ -14,7 +14,9 @@
   "dependencies": {
     "core-js": "^3.25.3",
     "jest-environment-jsdom": "^29.7.0",
+    "maplibre-gl": "^5.0.1",
     "nuxt": "^2.15.8",
+    "pmtiles": "^4.2.1",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"

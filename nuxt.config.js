@@ -15,6 +15,10 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://use.typekit.net/aks0uxe.css', // Adobe Fonts stylesheet
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
@@ -32,6 +36,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/main.css',
+    'maplibre-gl/dist/maplibre-gl.css', // Maplibre CSS
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

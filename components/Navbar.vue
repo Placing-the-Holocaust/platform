@@ -4,14 +4,15 @@
     <nav class="navbar">
       <div class="navbar-container">
         <NuxtLink to="/" class="logo-link">
-          <img src="/images/logo.png" alt="Platform Logo" class="navbar-logo" />
-          <span class="navbar-title">Platform</span>
+          <!-- <img src="/images/logo.png" alt="Platform Logo" class="navbar-logo" /> -->
+          <span class="navbar-title">Placing the Holocaust</span>
         </NuxtLink>
         <ul class="navbar-links">
           <li><NuxtLink to="/map">Map</NuxtLink></li>
           <li><NuxtLink to="/search">Search</NuxtLink></li>
           <li><NuxtLink to="/transcripts">Transcripts</NuxtLink></li>
-          <li><NuxtLink to="/full-transcripts">All Transcripts</NuxtLink></li>
+          <li><NuxtLink to="/documentation">Documentation</NuxtLink></li>
+          <li><NuxtLink to="/about">About</NuxtLink></li>
         </ul>
       </div>
     </nav>
@@ -25,7 +26,7 @@
   
   <style scoped>
   .navbar {
-    background-color: #2c3e50;
+    background-color: white;
     padding: 10px 20px;
     position: sticky;
     top: 0;
@@ -53,7 +54,8 @@
   }
   
   .navbar-title {
-    color: #ecf0f1;
+    font-family: 'ivypresto-text', serif;
+    color: black;
     font-size: 1.5em;
     font-weight: bold;
   }
@@ -67,14 +69,14 @@
   }
   
   .navbar-links a {
-    color: #ecf0f1;
+    color: black;
     text-decoration: none;
     font-size: 1em;
     transition: color 0.3s;
   }
   
   .navbar-links a:hover {
-    color: #3498db;
+    color: gray;
   }
   </style>
   

@@ -1,98 +1,88 @@
-<!-- pages/search.vue -->
+<!-- pages/search.vue example -->
 
 <template>
-    <div class="search-page">
-      <h1>Search Transcripts</h1>
-      <p>Use the search panel below to query interview transcripts.</p>
-      <!-- Placeholder for search functionality -->
-      <div class="search-panel">
-        <input type="text" v-model="query" placeholder="Enter search term..." />
-        <button @click="performSearch">Search</button>
-      </div>
-      <div class="search-results">
-        <!-- Results will be displayed here -->
-        <p v-if="results.length === 0">No results found.</p>
-        <ul v-else>
-          <li v-for="result in results" :key="result.id">
-            {{ result.title }}
-          </li>
-        </ul>
-      </div>
+  <div>
+    <h1></h1>
+    <SearchForm
+      :widgetNames="widgetNames"
+      :explanation="explanation"
+      :categoryOptions="categoryOptions"
+      :genderOptions="genderOptions"
+      :countryOptions="countryOptions"
+      :experienceGroupOptions="experienceGroupOptions"
+      :placeLabelOptions="placeLabelOptions"
+      @search-submitted="handleSearch"
+    />
+
+    <div v-if="results.length > 0" class="results-container">
+      <h2>Results ({{ results.length }})</h2>
+      <!-- Display table or grid of results -->
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'SearchPage',
-    data() {
-      return {
-        query: '',
-        results: [],
-      }
-    },
-    methods: {
-      performSearch() {
-        // Placeholder for API call to Weaviate cluster
-        // Replace with actual API integration
-        console.log('Searching for:', this.query)
-        // Example dummy data
-        this.results = [
-          { id: 1, title: 'Transcript 1: Krakow Ghetto' },
-          { id: 2, title: 'Transcript 2: Warsaw Ghetto' },
-        ].filter(item => item.title.toLowerCase().includes(this.query.toLowerCase()))
+  </div>
+</template>
+
+<script>
+import SearchForm from '@/components/SearchForm.vue'
+
+export default {
+  components: { SearchForm },
+  data() {
+    return {
+      widgetNames: {
+        query_header: { name: "Search", help: "Enter your search query" },
+        type_of_search: { name: "Type of Search", help: "Select Vector, Keyword, or Hybrid" },
+        query_text: { name: "Query Text", help: "Enter your text to search" },
+        places_header: { name: "Places", help: "Filter by place-based labels" },
+        select_label_matches: { name: "Select Label Matches", help: "Pick from environment, building, etc." },
+        answer_or_question: { name: "Answer or Question", help: "Filter by testimony category" },
+        select_gender: { name: "Select Gender", help: "Choose genders to include" },
+        select_place_of_birth: { name: "Select Place of Birth", help: "Filter by country of birth" },
+        select_experience_group: { name: "Select Experience Group", help: "Filter by experience groups" },
+        search_full_name: { name: "Full Name", help: "Search by transcript full name" },
+        search_rg_number: { name: "RG Number", help: "Search by RG number" },
+        number_of_results: { name: "Number of Results", help: "How many results to return" },
+        search_button: { name: "Search", help: "Click to perform the search" }
       },
-    },
+      explanation: { name: "Explanation", text: "Advanced search options for transcripts..." },
+      categoryOptions: ["question", "answer"],
+      genderOptions: ["M", "F", "Unknown"],
+      countryOptions: ["Poland", "Germany", "Unknown"],
+      experienceGroupOptions: ["Camp Survivor", "Partisan", "Ghetto Survivor", "Unknown"],
+      placeLabelOptions: [
+        { label: "Regions" },
+        { label: "Countries" },
+        { label: "Populated Places" },
+        { label: "Environmental Features" },
+        { label: "Distinct Landscape Features" },
+        { label: "Buildings" },
+        { label: "Interior Spaces" },
+        { label: "Spatial Objects" },
+        { label: "Imaginary Places" }
+      ],
+      results: []
+    }
+  },
+  methods: {
+    handleSearch(formData) {
+      console.log("Search data received:", formData)
+      // Perform your Weaviate or other search logic here...
+      // Then store results:
+      this.results = [
+        /* Example mock results */
+        { rg: "RG1234", text: "Transcript excerpt...", score: 0.95 },
+        { rg: "RG5678", text: "Another excerpt...", score: 0.87 }
+      ]
+    }
   }
-  </script>
-  
-  <style scoped>
-  .search-page {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .search-panel {
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .search-panel input {
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #bdc3c7;
-    border-radius: 5px;
-  }
-  
-  .search-panel button {
-    padding: 10px 20px;
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .search-panel button:hover {
-    background-color: #c0392b;
-  }
-  
-  .search-results {
-    margin-top: 30px;
-  }
-  
-  .search-results ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .search-results li {
-    background-color: #ecf0f1;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-  }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+.results-container {
+  margin-top: 20px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+</style>
