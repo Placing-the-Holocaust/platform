@@ -19,8 +19,19 @@ export default {
     ]
   },
 
+    // Router Configuration
+    router: {
+      base: '/platform/', // Replace 'platform' with your repository name
+    },
+  
+    // Generate Configuration
+    generate: {
+      fallback: '404.html', // Enables client-side routing
+    },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/main.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
