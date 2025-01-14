@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/full-transcripts", {data:[{}],fetch:{},mutations:void 0});
