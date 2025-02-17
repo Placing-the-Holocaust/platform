@@ -66,7 +66,7 @@
         "source-layer": "ghettos",
         "paint": {
           "circle-radius": {"stops": [[3, 2], [7, 6]]},
-          "circle-color": "#000"
+          "circle-color": "#AA66CD"
         }
       },
       {
@@ -76,7 +76,7 @@
         "source-layer": "ss_camps",
         "paint": {
           "circle-radius": {"stops": [[3, 2], [7, 6]]},
-          "circle-color": "#000"
+          "circle-color": "#FFAA00"
         }
       },
       {
