@@ -22,6 +22,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  
+  serverMiddleware: [
+    { path: "/api/weaviate-proxy", handler: "~/server/api/weaviate-proxy.js" }
+  ],
 
     // Router Configuration
     router: {
