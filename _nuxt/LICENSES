@@ -11,14 +11,14 @@
  */
 
 
+/**
+ * MapLibre GL JS
+ * @license 3-Clause BSD. Full text of license: https://github.com/maplibre/maplibre-gl-js/blob/v5.0.1/LICENSE.txt
+ */
+
+
 /*!
  * Vue.js v2.7.16
  * (c) 2014-2023 Evan You
  * Released under the MIT License.
- */
-
-
-/**
- * MapLibre GL JS
- * @license 3-Clause BSD. Full text of license: https://github.com/maplibre/maplibre-gl-js/blob/v5.0.1/LICENSE.txt
  */
