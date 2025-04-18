@@ -29,7 +29,7 @@ export default {
 
     // Router Configuration
     router: {
-      base: '/platform/', // Replace 'platform' with your repository name
+      base: '/', // Replace 'platform' with your repository name
     },
   
     // Generate Configuration
